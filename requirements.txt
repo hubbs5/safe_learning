@@ -1,6 +1,6 @@
 numpy>=1.0,<1.15
 scipy>=1.0.0<=1.2.1
-gpflow==0.4.0
+gpflow==1.5.1
 matplotlib<=4.0.0
 scs==2.0.2
 cvxpy>=1,<=1.0.15
