@@ -393,7 +393,7 @@ class GPRCached(gpflow.models.gpr.GPR):
         self.update_cache()
 
     @with_scope('compute_cache')
-    @gpflow.param.AutoFlow()
+    @gpflow.autoflow()
     def _compute_cache(self):
         """Compute cache."""
         # Scaled kernel
