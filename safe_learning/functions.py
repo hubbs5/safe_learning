@@ -354,8 +354,8 @@ class Saturation(DeterministicFunction):
         return tf.minimum(tf.maximum(res, self.lower), self.upper)
 
 
-class GPRCached(gpflow.gpr.GPR):
-    """gpflow.gpr.GPR class that stores cholesky decomposition for efficiency.
+class GPRCached(gpflow.models.gpr.GPR):
+    """gpflow.models.gpr.GPR class that stores cholesky decomposition for efficiency.
 
     Parameters
     ----------
@@ -379,7 +379,7 @@ class GPRCached(gpflow.gpr.GPR):
             raise gpflow
 
         # self.scope_name = scope.original_name_scope
-        gpflow.gpr.GPR.__init__(self, x, y, kern, mean_function, name)
+        gpflow.models.gpr.GPR.__init__(self, x, y, kern, mean_function, name)
 
         # Create new dataholders for the cached data
         # TODO zero-dim dataholders cause strange allocator errors in
