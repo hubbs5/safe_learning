@@ -33,6 +33,10 @@ __all__ = ['combinations', 'linearly_spaced_combinations', 'lqr', 'dlqr',
 
 _STORAGE = {}
 
+def make_tf_array(array):
+    return tf.placeholder(dtype=array.dtype,
+        shape=array.shape,
+        name=array.name)
 
 def make_tf_fun(return_type, gradient=None, stateful=True):
     """Convert a python function to a tensorflow function.

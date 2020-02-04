@@ -16,7 +16,7 @@ except ImportError as exception:
     gpflow = exception
 
 from .utilities import (concatenate_inputs, make_tf_fun, with_scope,
-                        use_parent_scope, get_feed_dict)
+                        use_parent_scope, get_feed_dict, make_tf_array)
 from safe_learning import config
 
 __all__ = ['DeterministicFunction', '_Triangulation', 'Triangulation',
@@ -490,7 +490,8 @@ class GaussianProcess(UncertainFunction):
             self.output_dim = gaussian_process.Y.shape[1]
 
             self.hyperparameters = [tf.placeholder(config.dtype, [None])]
-            self.gaussian_process.make_tf_array(self.hyperparameters[0])
+            # self.gaussian_process.make_tf_array(self.hyperparameters[0])
+            self._tf_array = make_tf_array(self.hyperparameters[0])
 
             self.update_feed_dict()
 
